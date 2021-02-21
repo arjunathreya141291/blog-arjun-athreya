@@ -85,7 +85,7 @@ const Navigation = () => {
         <Link href={{pathname: '/'}}>
           <a className="logo flex flex-row text-2xl">
             <div className="letter logo-name inline-block top-0 relative">
-              Arjun Athreya
+              AA
             </div>
           </a>
         </Link>
