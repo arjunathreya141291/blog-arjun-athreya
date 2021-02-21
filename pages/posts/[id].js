@@ -2,7 +2,7 @@ import React from 'react'
 import {getAllPostIds, getPostData} from '../../lib/posts'
 import Link from 'next/link'
 import Head from 'next/head'
-import Date from '../../components/date'
+import Date from '../../components/Date'
 import Image from 'next/image'
 
 import utilStyles from '../../styles/utils.module.css'
