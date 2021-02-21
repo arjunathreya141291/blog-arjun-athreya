@@ -25,11 +25,7 @@ const Home = ({allPostsData}) => {
   const blogRef = useRef(null)
   const formSubmitBtnRef = useRef(null)
   const [formResult, setFormResult] = useState('')
-  const suggestions = [
-    'Senior Software Engineer at Adobe',
-    'massive Arsenal fan',
-    'Potterhead',
-  ]
+  const suggestions = ['hodophile', 'diehard Arsenal fan', 'budding magician']
 
   const speed = 100
   let charCounter = 0
