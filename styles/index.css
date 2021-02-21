@@ -192,3 +192,20 @@ li.showdev {
     transform: scale(1.2);
   }
 }
+
+.blog {
+  text-align: center;
+}
+
+.blog-title {
+  color: #0070f3;
+  cursor: pointer;
+}
+
+.blog-title:hover {
+  text-decoration: underline;
+}
+
+.logo-name {
+  font-family: Chalkduster;
+}

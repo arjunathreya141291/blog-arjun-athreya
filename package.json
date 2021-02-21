@@ -1,5 +1,5 @@
 {
-  "name": "website-thomas",
+  "name": "arjun-athreya",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -18,10 +18,14 @@
     "@fortawesome/free-solid-svg-icons": "^5.15.1",
     "@fortawesome/react-fontawesome": "^0.1.12",
     "aos": "^2.3.4",
+    "date-fns": "^2.17.0",
+    "gray-matter": "^4.0.2",
     "next": "latest",
     "next-themes": "^0.0.10",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
+    "remark": "^13.0.0",
+    "remark-html": "^13.0.1",
     "sharp": "^0.26.3",
     "smoothscroll-polyfill": "^0.4.4"
   },

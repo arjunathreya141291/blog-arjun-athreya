@@ -42,13 +42,13 @@ const Navigation = () => {
             </a>
           </Link>
         </li>
-        <li className="mt-2 sm:mt-0 sm:mr-6">
+        {/* <li className="mt-2 sm:mt-0 sm:mr-6">
           <Link href={{pathname: '/', hash: 'portfolio'}}>
             <a className="relative" onClick={linkClicked}>
               Portfolio
             </a>
           </Link>
-        </li>
+        </li> */}
         <li className="mt-2 sm:mt-0 sm:mr-6">
           <Link href={{pathname: '/', hash: 'blog'}}>
             <a className="relative" onClick={linkClicked}>
@@ -84,13 +84,9 @@ const Navigation = () => {
       <div className="flex h-full container mx-auto justify-between items-center px-4 md:px-0">
         <Link href={{pathname: '/'}}>
           <a className="logo flex flex-row text-2xl">
-            <div className="letter inline-block top-0 relative">t</div>
-            <div className="letter inline-block top-0 relative">h</div>
-            <div className="letter inline-block top-0 relative">m</div>
-            <div className="letter inline-block top-0 relative">s</div>
-            <div className="letter inline-block top-0 relative">l</div>
-            <div className="letter inline-block top-0 relative">d</div>
-            <div className="letter inline-block top-0 relative">x</div>
+            <div className="letter logo-name inline-block top-0 relative">
+              Arjun Athreya
+            </div>
           </a>
         </Link>
         <ul className="hidden md:flex">{renderNavigationItems()}</ul>

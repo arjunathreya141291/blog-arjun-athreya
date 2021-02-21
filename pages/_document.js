@@ -27,26 +27,6 @@ class MyDocument extends Document {
           ></script>
           <link rel="preconnect" href="https://www.google-analytics.com" />
           <link rel="shortcut icon" type="image/x-icon" href="/myAvatar.ico" />
-          <meta
-            name="description"
-            content="You can find projects Thomas Ledoux worked on and contact details on this site."
-          ></meta>
-          <meta
-            property="og:description"
-            content="You can find projects Thomas Ledoux worked on and contact details on this site."
-          />
-          <meta
-            property="og:title"
-            content="Thomas Ledoux, Frontend Developer from Ghent"
-          />
-          <meta
-            property="og:image"
-            content="https://res.cloudinary.com/dzrea5zhv/image/upload/w_300/v1583171588/me_qvrwky.jpg"
-          />
-          <meta
-            name="keywords"
-            content="HTML, CSS, JavaScript, Frontend, Ghent, Thomas, Ledoux"
-          ></meta>
         </Head>
         <body>
           <Main />

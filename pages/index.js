@@ -2,15 +2,22 @@ import React, {useEffect, useRef, useState} from 'react'
 import Head from 'next/head'
 import Image from 'next/image'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import {
-  faGithub,
-  faLinkedin,
-  faFacebook,
-  faDev,
-} from '@fortawesome/free-brands-svg-icons'
+import {faLinkedin} from '@fortawesome/free-brands-svg-icons'
 import smoothscroll from 'smoothscroll-polyfill'
+import {getSortedPostsData} from '../lib/posts'
+import Link from 'next/link'
+import Date from '../components/date'
 
-const Home = ({blogs}) => {
+export async function getStaticProps() {
+  const allPostsData = getSortedPostsData()
+  return {
+    props: {
+      allPostsData,
+    },
+  }
+}
+
+const Home = ({allPostsData}) => {
   const textWrapper = useRef(null)
   const personalRef = useRef(null)
   const portfolioRef = useRef(null)
@@ -19,14 +26,11 @@ const Home = ({blogs}) => {
   const formSubmitBtnRef = useRef(null)
   const [formResult, setFormResult] = useState('')
   const suggestions = [
-    'developer',
-    'badminton player',
-    'squasher',
-    'travel lover',
+    'Senior Software Engineer at Adobe',
+    'massive Arsenal fan',
+    'Potterhead',
   ]
-  const age = Math.floor(
-    (new Date() - new Date('1991-07-11').getTime()) / 3.15576e10,
-  )
+
   const speed = 100
   let charCounter = 0
   let currentIndex = 0
@@ -68,7 +72,7 @@ const Home = ({blogs}) => {
     let observer
     if (
       personalRef.current &&
-      portfolioRef.current &&
+      // portfolioRef.current &&
       contactRef.current &&
       blogRef.current
     ) {
@@ -90,12 +94,12 @@ const Home = ({blogs}) => {
         })
       }, options)
       observer.observe(personalRef.current)
-      observer.observe(portfolioRef.current)
+      //     observer.observe(portfolioRef.current)
       observer.observe(contactRef.current)
       observer.observe(blogRef.current)
     }
     return () => observer.disconnect()
-  }, [personalRef, portfolioRef, contactRef, blogRef])
+  }, [personalRef, contactRef, blogRef])
 
   const submitForm = ev => {
     setFormStatus('loading')
@@ -118,58 +122,19 @@ const Home = ({blogs}) => {
     xhr.send(data)
   }
 
-  const renderCase = ({index, url, altLogo, logo, content, tags, width}) => {
-    return (
-      <div className="p-6 shadow-case rounded-lg hover:shadow-case-hover transition transition-shadow transition-duration-300 ease-in-out dark:bg-darkgrey dark:text-whitedarktheme">
-        <div className="portfolio-case h-full">
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex flex-col h-full"
-            href={url}
-          >
-            <div className="h-24 flex justify-center items-center max-w-full mb-4">
-              <div className="max-h-24">
-                <Image
-                  width={width}
-                  height={100}
-                  alt={`Logo ${altLogo}`}
-                  src={logo}
-                />
-              </div>
-            </div>
-            {content}
-            <div className="flex flex-col mt-4 flex-grow justify-end">
-              <ul className="flex flex-wrap">
-                {tags.map((tag, i) => (
-                  <li
-                    className="bg-darkPurple dark:bg-orange text-white dark:text-whitedarktheme text-sm my-1 py-1 px-4 mr-2 rounded-md"
-                    key={i}
-                  >
-                    {tag}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </a>
-        </div>
-      </div>
-    )
-  }
-
   return (
     <>
       <Head>
-        <title>Thomas Ledoux' Portfolio - Home</title>
+        <title>Personal Blog</title>
       </Head>
       <section
         id="hero"
-        className="relative min-h-screen-without-nav items-center content-center flex pb-16 dark:bg-lightgrey dark:text-whitedarktheme"
+        className="relative min-h-screen-without-nav items-center content-center flex pb-48 dark:bg-lightgrey dark:text-whitedarktheme"
       >
         <div className="container mx-6 sm:mx-auto grid md:grid-cols-2 items-center content-center">
           <div>
             <h1 className="md:text-4xl">
-              Thomas is a <span ref={textWrapper}></span>
+              Arjun is a <span ref={textWrapper}></span>
             </h1>
           </div>
           <div>
@@ -178,9 +143,9 @@ const Home = ({blogs}) => {
               loading="eager"
               priority
               alt="Profile picture"
-              src="https://res.cloudinary.com/dzrea5zhv/image/upload/v1583171588/me_qvrwky"
-              width={500}
-              height={500}
+              src="/profile.jpg"
+              width={300}
+              height={300}
             />
           </div>
         </div>
@@ -337,303 +302,59 @@ const Home = ({blogs}) => {
           </>
           <div className="bg-white rounded-lg dark:bg-lightgrey dark:text-whitedarktheme p-6 mt-6 sm:mt-0 mx-6 sm:mx-0">
             <div>
-              <h2 className="mb-6">Personal Information</h2>
+              <h2 className="mb-6">Who am I?</h2>
               <p>
-                Hi, I'm Thomas. I'm {age} years old, living in Ghent. I'm a
-                professional Frontend Developer, currently working at The
-                Reference.
+                Howdy 🤠 partner! We meet for the first time for the last time!
               </p>
+              &nbsp;
               <p>
-                I studied Applied Computer Sciences at Hogeschool Gent. I chose
-                the Mobile Development track, and went on Erasmus to Barcelona
-                to learn more about Swift and Java. During my internship for
-                Rialto I created an iOS app in Swift.
+                I go by the name Arjun. I love soccer, tennis, cricket and
+                Formula 1. I am curious by nature and like to keep myself up to
+                date on current affairs. I like reading about history. I enjoy
+                traveling and i want to visit a 100 countries before i start
+                sleeping with the fishes.
               </p>
+              &nbsp;
               <p>
-                After graduating I worked for the startup Happs as a full-stack
-                developer, where I created and maintained the website. I also
-                created an app for a client in React Native during this period.
+                I am a fan of stimulating conversations and witty banter. I am
+                into fitness and prefer squats and deadlifts over the treadmill.
+                I am a big Potterhead and The Office is my favorite Sitcom.
               </p>
-              <p>You can read more about my work in the section below.</p>
+              &nbsp;
+              <p>
+                I am an Austin 🇺🇸 based-New Delhi 🇮🇳 raised Senior Software
+                Engineer at Adobe.
+              </p>
             </div>
           </div>
         </div>
       </section>
-      <section
-        id="portfolio"
-        ref={portfolioRef}
-        className="dark:bg-lightgrey dark:text-whitedarktheme"
-      >
-        <div className="container mx-auto min-h-screen-without-nav items-center content-center py-6 md:py-12">
-          <h2 className="text-center mb-6 md:mb-12">Some of my work</h2>
-          <div className="grid mx-6 sm:mx-0 grid-cols-1 md:grid-cols-2 gap-6 md:gap-12">
-            {renderCase({
-              index: 0,
-              url: 'https://www.karaton.be',
-              altLogo: 'Karaton',
-              logo:
-                'https://res.cloudinary.com/dzrea5zhv/image/upload/v1583171504/logokaraton.png',
-              width: 218,
-              content: (
-                <>
-                  <p>
-                    For Happs Development I created and maintained the website
-                    for Karaton where speech therapists and parents of dyslexic
-                    could follow up on the progress their children/patients are
-                    making in the Karaton game.
-                  </p>
-                  <p>
-                    There were a lot of graphs to be shown with Highcharts, a
-                    payment integration through Mollie, different roles for
-                    admins/therapists/parents.
-                  </p>
-                  <p>
-                    In this team I worked as a Full Stack Developer, giving me a
-                    lot of insight in how the backend of a web application
-                    works.
-                  </p>
-                </>
-              ),
-              tags: ['mongodb', 'expressjs', 'angular', 'nodejs'],
-            })}
 
-            {renderCase({
-              index: 1,
-              url: 'https://www.getrialto.com',
-              altLogo: 'Rialto',
-              logo:
-                'https://res.cloudinary.com/dzrea5zhv/image/upload/v1583171504/logorialto.png',
-              width: 321,
-              content: (
-                <>
-                  <p>
-                    At my internship for Rialto I created an iOS app from
-                    scratch in Swift where real estate companies could easily
-                    manage their listings.
-                  </p>
-                  <p>
-                    I created the screens in storyboards based on the designs
-                    provided by our designer.
-                  </p>
-                  <p>
-                    When the screens were finished I used Swift code to
-                    implement functionality such as logins through an API,
-                    fetching the listings through an API, saving the listings in
-                    the SQLite database..
-                  </p>
-                </>
-              ),
-              tags: ['swift', 'ios'],
-            })}
-
-            {renderCase({
-              index: 2,
-              url:
-                'https://play.google.com/store/apps/details?id=com.carlierkathleen.rekenen&hl=nl',
-              altLogo: 'Carlier Rekenen',
-              logo:
-                'https://res.cloudinary.com/dzrea5zhv/image/upload/v1606296227/logocarlier.png',
-              width: 100,
-              content: (
-                <>
-                  <p>
-                    While working at Happs Development I also created a mobile
-                    application for a speech therapist to help children with
-                    discalculia to learn how to count and do simple math
-                    exercises in a fun game form.
-                  </p>
-                  <p>
-                    The app was created from scratch using React Native for fast
-                    development, and Expo to get fast previews of the app on
-                    real devices.
-                  </p>
-                  <p>
-                    This project taught me a lot about animations, how to handle
-                    dynamically generated sound output for the spoken numbers,
-                    learn which platform specific APIs to use..
-                  </p>
-                </>
-              ),
-              tags: ['react-native', 'reactjs'],
-            })}
-
-            {renderCase({
-              index: 3,
-              url: 'https://www.carglass.be',
-              altLogo: 'Carglass',
-              logo:
-                'https://res.cloudinary.com/dzrea5zhv/image/upload/v1583171504/logocarglass.png',
-              width: 374,
-              content: (
-                <>
-                  <p>
-                    At my current job at The Reference I help maintain the
-                    website for Carglass, we keep adding new features and
-                    maintain the older code in sprints.
-                  </p>
-                  <p>
-                    We have a separate Backend Development team, so my focus is
-                    purely on the Frontend Development in ReactJS.
-                  </p>
-                  <p>
-                    In the booking flows we make heavy use of MobX for state
-                    management, Local- and Sessionstorage to save intermediary
-                    input by the users and integrate with APIs from different
-                    parties.
-                  </p>
-                </>
-              ),
-              tags: ['sitecore', 'reactjs'],
-            })}
-
-            {renderCase({
-              index: 4,
-              url: 'https://www.nationale-loterij.be',
-              altLogo: 'Nationale Loterij',
-              logo:
-                'https://res.cloudinary.com/dzrea5zhv/image/upload/v1606296227/logonalo.png',
-              width: 240,
-              content: (
-                <>
-                  <p>
-                    One of the other clients I work for at The Reference is
-                    Nationale Loterij, for this client we constantly create new
-                    features with a modern look on a monthly basis.
-                  </p>
-                  <p>
-                    In this project I get to test out even more new
-                    technologies, and new features in the existing technologies
-                    (think React Hooks, CSS3 animations..).
-                  </p>
-                  <p>
-                    The feature I'm most proud of is the interactive Sponsoring
-                    Map of Belgium we created with some nice animations and
-                    beautiful design.
-                  </p>
-                </>
-              ),
-              tags: ['sitecore', 'reactjs'],
-            })}
-
-            {renderCase({
-              index: 5,
-              url: 'https://www.achterderegenboog.be',
-              altLogo: 'Achter De Regenboog',
-              logo:
-                'https://res.cloudinary.com/dzrea5zhv/image/upload/v1583870456/logoachterderegenboog.png',
-              width: 150,
-              content: (
-                <>
-                  <p>
-                    In my free time I like to experiment with other frameworks
-                    and technologies too, this is why I made a website using
-                    Wordpress for a friend of mine who started a psychologists
-                    practice.
-                  </p>
-                  <p>
-                    My friend gave me some high level designs, and I got to
-                    work! I selected a fitting theme.{' '}
-                  </p>
-                  <p>
-                    I built on the theme with a lot of plugins to optimize the
-                    speed of the website (Autoptimize), the SEO (Yoast) and
-                    anti-spam by Akismet.
-                  </p>
-                </>
-              ),
-              tags: ['wordpress', 'html', 'css'],
-            })}
-            {renderCase({
-              index: 6,
-              url: 'https://www.deckdeckgo.com',
-              altLogo: 'DeckDeckGo',
-              logo:
-                'https://res.cloudinary.com/dzrea5zhv/image/upload/v1603387322/logoduckduckgo.png',
-              width: 100,
-              content: (
-                <>
-                  <p>
-                    In 2020 I participated in Hacktoberfest for the first time
-                    ever. I did some research on which open source project I
-                    would like to contribute to, and landed on DeckDeckGo.
-                  </p>
-                  <p>
-                    It was a lot of fun to coloborate with other open source
-                    contributors, and to work in a new technological stack. I'm
-                    definitely going to continue contributing to open source in
-                    the future!
-                  </p>
-                </>
-              ),
-              tags: ['open source', 'hacktoberfest', 'stencil', 'typescript'],
-            })}
-            {renderCase({
-              index: 7,
-              url: 'https://www.accentjobs.be',
-              altLogo: 'Accent Jobs',
-              logo:
-                'https://res.cloudinary.com/dzrea5zhv/image/upload/v1606296580/logoaccent.png',
-              width: 532,
-              content: (
-                <>
-                  <p>
-                    At the end of 2020, I got the opportunity to work on a
-                    project within The Reference using our new MACH stack.
-                  </p>
-                  <p>
-                    This was the first time I was using Gatsby for a production
-                    website, and I must say it makes developing a breeze.
-                    Connecting everything through API's, no hard dependecies on
-                    a CMS.. I love it.
-                  </p>
-                </>
-              ),
-              tags: ['gatsby', 'drupal', 'typscript', 'emotion'],
-            })}
-          </div>
-        </div>
-      </section>
       <section
         id="blog"
         ref={blogRef}
         className="bg-purple dark:bg-darkgrey dark:text-whitedarktheme"
       >
-        <div className="container mx-auto min-h-screen-without-nav flex flex-col items-center justify-center py-6">
+        <div className="container mx-auto min-h-screen-without-nav flex-col items-center justify-center py-6">
           <h2 className="text-center mb-6 md:mb-12">Personal blog</h2>
-          {blogs &&
-            blogs.map(blog => (
-              <a
-                target="_blank"
-                rel="noopener noreferrer"
-                key={blog.id}
-                href={blog.url}
-                aria-label={blog.title}
-              >
+          {allPostsData &&
+            allPostsData.map(({id, date, title}) => (
+              <Link href={`/posts/${id}`}>
                 <article className="bg-white rounded-lg dark:bg-lightgrey dark:text-whitedarktheme p-6 mb-6 mx-6 sm:mx-0 ">
                   <div className="flex justify-between">
                     <h3 className="text-xl font-medium mb-3 dark:text-white">
-                      {blog.title}
+                      <a className="blog-title">{title}</a>
                     </h3>
                     <time className="text-right text-sm">
-                      {blog.readable_publish_date}
+                      <Date dateString={date}></Date>
                     </time>
                   </div>
-                  <p className="mb-2">{blog.description}</p>
-                  <ul className="flex flex-wrap">
-                    {blog.tag_list.map((tag, i) => (
-                      <li
-                        className={`text-sm my-1 py-1 px-4 mr-2 rounded-md ${tag}`}
-                        key={i}
-                      >
-                        {tag}
-                      </li>
-                    ))}
-                  </ul>
                 </article>
-              </a>
+              </Link>
             ))}
         </div>
       </section>
+
       <section
         id="contact"
         ref={contactRef}
@@ -710,10 +431,10 @@ const Home = ({blogs}) => {
             </svg>
           </div>
           <div className="p-6 flex justify-center flex-col">
-            <h2 className="mb-6">Drop me a message</h2>
+            <h2 className="mb-6">Say Hi to me!</h2>
             <form
               onSubmit={e => submitForm(e)}
-              action="https://formspree.io/xzbgjqdq"
+              action="https://formspree.io/f/xrgovjoz"
               method="POST"
             >
               <div className="flex flex-col">
@@ -764,7 +485,12 @@ const Home = ({blogs}) => {
             </form>
           </div>
           <div className="p-6 flex justify-center items-center flex-col">
-            <h2 className="mb-6">You can also find me here</h2>
+            <h2 className="mb-6">
+              <p>Hey, I just met you,</p>
+              <p>And this is crazy,</p>
+              <p>But here's my LinkedIn profile,</p>
+              <p>So connect with me, maybe?</p>
+            </h2>
             <ul className="flex">
               <li>
                 <a
@@ -772,52 +498,12 @@ const Home = ({blogs}) => {
                   rel="noopener noreferrer"
                   aria-label="linkedin"
                   className="mr-2"
-                  href="https://www.linkedin.com/in/thomasledoux91"
+                  href="https://www.linkedin.com/in/arjunathreya1/"
                 >
                   <FontAwesomeIcon
                     size="2x"
                     icon={faLinkedin}
                     className="fill-current text-linkedIn"
-                  />
-                </a>
-              </li>
-              <li>
-                <a
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="github"
-                  className="mr-2"
-                  href="https://github.com/thomasledoux1"
-                >
-                  <FontAwesomeIcon size="2x" icon={faGithub} className="" />
-                </a>
-              </li>
-              <li>
-                <a
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="facebook"
-                  className="mr-2"
-                  href="https://www.facebook.com/thomasledoux91/"
-                >
-                  <FontAwesomeIcon
-                    size="2x"
-                    icon={faFacebook}
-                    className="fill-current text-linkedIn"
-                  />
-                </a>
-              </li>
-              <li>
-                <a
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="dev.to"
-                  href="https://dev.to/thomasledoux1"
-                >
-                  <FontAwesomeIcon
-                    size="2x"
-                    icon={faDev}
-                    className="fill-current"
                   />
                 </a>
               </li>
@@ -827,24 +513,6 @@ const Home = ({blogs}) => {
       </section>
     </>
   )
-}
-
-export async function getStaticProps(context) {
-  const res = await fetch('https://dev.to/api/articles?username=thomasledoux1')
-  const data = await res.json()
-
-  if (!data) {
-    return {
-      notFound: true,
-    }
-  }
-
-  return {
-    props: {
-      blogs: data,
-    },
-    revalidate: 604800,
-  }
 }
 
 export default Home
