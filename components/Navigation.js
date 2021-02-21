@@ -11,7 +11,7 @@ const Navigation = () => {
   const [mounted, setMounted] = useState(false)
   const router = useRouter()
   const {width} = useWindowSize()
-  const {theme, setTheme} = useTheme()
+  const {theme, setTheme} = useTheme('dark')
 
   React.useEffect(() => setMounted(true), [])
 
