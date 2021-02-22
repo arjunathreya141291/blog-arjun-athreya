@@ -27,7 +27,8 @@ such trouble. I never lost power, water or cellphone coverage.
 
 I got some downtime from work as my managers encouraged everyone to take care of
 themselves and their families first. I can't thank Adobe and the very thoughtful
-leaders enough. I am so proud to be working for a company with such values.
+leaders enough. I am so proud and incredinly grateful to be working for a
+company with such values.
 
 The first couple of days i binge watched Netflix and Amazon Prime. I also dusted
 off the cobwebs from my PS4 and replayed Nathan Drake. I have been trying to
