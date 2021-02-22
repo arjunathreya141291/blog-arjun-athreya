@@ -32,7 +32,7 @@ export default function Post({postData}) {
       </Head>
       <section
         id="blog"
-        className="min-h-screen-without-nav blog pt-20 dark:bg-lightgrey dark:text-whitedarktheme"
+        className="min-h-screen-without-nav pt-20 dark:bg-lightgrey dark:text-whitedarktheme"
       >
         <div className="text-center">
           <Image
@@ -45,20 +45,22 @@ export default function Post({postData}) {
             height={150}
           />
         </div>
-        <article>
-          <h1 className={utilStyles.headingXl}>{postData.title}</h1>
-          <div className={utilStyles.lightText}>
-            <Date dateString={postData.date} />
-          </div>
+        <div class={utilStyles.blogPost}>
+          <article>
+            <h1 className={utilStyles.headingXl}>{postData.title}</h1>
+            <div className={utilStyles.lightText}>
+              <Date dateString={postData.date} />
+            </div>
+            <br />
+            <div dangerouslySetInnerHTML={{__html: postData.contentHtml}} />
+          </article>
           <br />
-          <div dangerouslySetInnerHTML={{__html: postData.contentHtml}} />
-        </article>
-        <br />
-        <h2>
-          <Link href="/">
-            <a className={utilStyles.link}>← Back to home</a>
-          </Link>
-        </h2>
+          <h2>
+            <Link href="/">
+              <a className={utilStyles.link}>← Back to home</a>
+            </Link>
+          </h2>
+        </div>
       </section>
     </>
   )

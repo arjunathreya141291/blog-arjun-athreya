@@ -298,17 +298,18 @@ const Home = ({allPostsData}) => {
           </>
           <div className="bg-white rounded-lg dark:bg-lightgrey dark:text-whitedarktheme p-6 mt-6 sm:mt-0 mx-6 sm:mx-0">
             <div>
-              <h2 className="mb-6">Who am I?</h2>
+              <h2 className="mb-6">Who am I? 🤷‍♂️</h2>
               <p>
                 Howdy 🤠 partner! We meet for the first time for the last time!
               </p>
               &nbsp;
               <p>
-                I go by the name Arjun. I love soccer, tennis, cricket and
-                Formula 1. I am curious by nature and like to keep myself up to
-                date on current affairs. I like reading about history. I enjoy
-                traveling and i want to visit a 100 countries before i start
-                sleeping with the fishes.
+                I go by the name Arjun Athreya(pronouned 'Uh-r-j-uu-n
+                Aath-re-ya'). I love soccer, tennis, cricket and Formula 1. I am
+                curious by nature and like to keep myself up to date on current
+                affairs. I like reading about history. I enjoy traveling and i
+                want to visit a 100 countries before i start sleeping with the
+                fishes.
               </p>
               &nbsp;
               <p>

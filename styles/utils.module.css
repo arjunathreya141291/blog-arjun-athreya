@@ -62,3 +62,9 @@
 .blog {
   text-align: center;
 }
+
+.blogPost {
+  max-width: 75rem;
+  padding: 0 1rem 2rem 1rem;
+  margin: auto auto 0;
+}
