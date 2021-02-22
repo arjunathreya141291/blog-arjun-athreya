@@ -14,12 +14,12 @@ Texas suffered an infrastructure failure as power demand surged to an all time
 high and the grids weren't able to keep up. Millions of folks lost power, water
 and cellphone signal for almost a week.
 
-I had recently come back from NYC to Austin and had stocked up on supplies. I
-also filled up gas in my car when i heard about the approaching blizzard. This
-is something i normally do out of habit every time i hear or read about an
-impending weather calamity. In my mind i always think i can drive out of harm's
-way if push comes to shove. I was also prepared to hunker down and ride this one
-out.
+I had recently come back from NYC to Austin to get my passport renewed and had
+stocked up on supplies. I also filled up gas in my car when i heard about the
+approaching blizzard. This is something i normally do out of habit every time i
+hear or read about an impending weather calamity. In my mind i always think i
+can drive out of harm's way if push comes to shove. I was fully prepped to
+hunker down and ride this one out.
 
 They say fortune favors the prepared mind - and how true this proved to be!
 While millions of folks lost power and access to clean drinking water, i had no
