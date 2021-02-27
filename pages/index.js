@@ -304,7 +304,7 @@ const Home = ({allPostsData}) => {
               </p>
               &nbsp;
               <p>
-                I go by the name Arjun Athreya(pronouned 'Uh-r-j-uu-n
+                I go by the name Arjun Athreya(pronounced 'Uh-r-j-uu-n
                 Aath-re-ya'). I love soccer, tennis, cricket and Formula 1. I am
                 curious by nature and like to keep myself up to date on current
                 affairs. I like reading about history. I enjoy traveling and i
